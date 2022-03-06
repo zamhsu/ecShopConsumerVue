@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <div class="px-3 py-2 bg-dark text-white">
+      <div class="px-3 py-2 bg-dark text-white fixed-top">
         <div class="container">
           <div
             class="

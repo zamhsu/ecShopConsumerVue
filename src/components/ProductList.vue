@@ -69,6 +69,7 @@ import productApi from "@/api/product";
 import { cart } from "@/services/cartService";
 import { currency } from "@/utils/filter";
 import { defineComponent, ref } from "vue";
+import { emitter } from "@/utils/eventBus";
 
 export default defineComponent({
   components: {
@@ -93,6 +94,10 @@ export default defineComponent({
 
     function addToCart(product: ProductDisplayModel, quantity = 1) {
       cart.add(product, quantity);
+      emitter.emit("alertEvent", {
+        message: "成功加入購物車",
+        status: "success",
+      });
     }
 
     return {

@@ -1,6 +1,7 @@
 <template>
   <div>
     <Navbar />
+    <AlertMessage />
     <main>
       <router-view></router-view>
     </main>
@@ -9,11 +10,13 @@
 
 <script lang="ts">
 import Navbar from "@/components/wrappers/Navbar.vue";
+import AlertMessage from "@/components/AlertMessage.vue";
 import { defineComponent } from "vue";
 
 export default defineComponent({
   components: {
     Navbar,
+    AlertMessage,
   },
   name: "MainLayout",
 });

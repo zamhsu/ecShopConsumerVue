@@ -50,6 +50,13 @@
                   訂單
                 </a>
               </li>
+              <li>
+                <a href="#" class="nav-link text-white">
+                  <i class="fas fa-shopping-cart"></i>
+                  購物車
+                  <CartBadge />
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -59,10 +66,14 @@
 </template>
 
 <script lang="ts">
+import CartBadge from "@/components/cart/CartBadge.vue";
 import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "Navbar",
+  components: {
+    CartBadge,
+  },
 });
 </script>
 

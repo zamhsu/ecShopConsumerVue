@@ -37,7 +37,11 @@
             </div>
             <div class="d-flex justify-content-between align-items-center mt-2">
               <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">
+                <button
+                  type="button"
+                  class="btn btn-sm btn-outline-secondary"
+                  @click="addToCart(product)"
+                >
                   加入購物車
                 </button>
               </div>
@@ -62,6 +66,7 @@ import Pagination from "@/components/Pagination.vue";
 import { PaginationModel } from "@/models/paginationModel";
 import { ProductDisplayModel } from "@/models/productModel";
 import productApi from "@/api/product";
+import { cart } from "@/services/cartService";
 import { currency } from "@/utils/filter";
 import { defineComponent, ref } from "vue";
 
@@ -86,10 +91,15 @@ export default defineComponent({
       });
     }
 
+    function addToCart(product: ProductDisplayModel, quantity = 1) {
+      cart.add(product, quantity);
+    }
+
     return {
       products,
       pagination,
       getProducts,
+      addToCart,
       currency,
     };
   },

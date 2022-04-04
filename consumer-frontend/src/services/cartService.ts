@@ -102,7 +102,7 @@ export const cart = reactive({
     remove(productGuid: string) {
         const items = this.getItems();
         const itemIndex = items.findIndex(val => {
-            val.productGuid === productGuid;
+            return val.productGuid === productGuid;
         });
 
         if (itemIndex < 0) {
@@ -113,4 +113,26 @@ export const cart = reactive({
         updateToSessionStorage(items);
         this.count = getItemCount();
     },
+
+    /**
+     * 更新指定商品的數量
+     * @param productGuid 商品Guid
+     * @param quantity 數量
+     * @returns 
+     */
+    updateQuantity(productGuid: string, quantity: number) {
+        const items = this.getItems();
+        const itemIndex = items.findIndex(val => {
+            return val.productGuid === productGuid;
+        });
+
+        if (itemIndex < 0) {
+            return;
+        }
+
+        items[itemIndex].quantity = quantity;
+        items[itemIndex].amount = quantity * items[itemIndex].productPrice;
+
+        updateToSessionStorage(items);
+    }
 })

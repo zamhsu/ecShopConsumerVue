@@ -36,7 +36,7 @@
 </template>
 
 <script lang="ts">
-import { PaginationModel } from "@/models/PaginationModel";
+import { PaginationModel } from "@/models/paginationModel";
 import { defineComponent } from "vue";
 
 export default defineComponent({

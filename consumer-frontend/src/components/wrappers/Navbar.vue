@@ -51,11 +51,11 @@
                 </a>
               </li>
               <li>
-                <a href="#" class="nav-link text-white">
+                <router-link :to="{ name: 'Cart' }" class="nav-link text-white">
                   <i class="fas fa-shopping-cart"></i>
                   購物車
                   <CartBadge />
-                </a>
+                </router-link>
               </li>
             </ul>
           </div>

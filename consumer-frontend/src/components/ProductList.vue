@@ -63,7 +63,7 @@
 
 <script lang="ts">
 import Pagination from "@/components/Pagination.vue";
-import { PaginationModel } from "@/models/PaginationModel";
+import { PaginationModel } from "@/models/paginationModel";
 import { ProductDisplayModel } from "@/models/productModel";
 import productApi from "@/api/product";
 import { cart } from "@/services/cartService";

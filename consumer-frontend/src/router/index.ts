@@ -19,6 +19,11 @@ export const routes: Array<RouteRecordRaw> = [
                 component: () => import(/* webpackChunkName: "index" */ '../pages/Cart.vue'),
             },
             {
+                path: "cart/checkout",
+                name: "CartCheckout",
+                component: () => import(/* webpackChunkName: "index" */ '../pages/Checkout.vue'),
+            },
+            {
                 path: "order",
                 name: "Order",
                 component: MainLayout,

@@ -1,4 +1,7 @@
-import { ProductPagedDisplayModel } from "@/models/productModel";
+import {
+    ProductDisplayModel,
+    ProductPagedDisplayModel
+} from "@/models/productModel";
 import { ResponseData } from "@/models/responseData";
 import axios from "@/utils/http";
 
@@ -11,6 +14,17 @@ export default {
      */
     async getPaged(pageSize = 10, page = 1): Promise<ResponseData<ProductPagedDisplayModel>> {
         const { data } = await axios.get(`product?pageSize=${pageSize}&page=${page}`);
+
+        return data;
+    },
+
+    /**
+     * 取得一筆指定產品資料
+     * @param guid 商品GUID
+     * @returns 
+     */
+    async getOne(guid: string): Promise<ResponseData<ProductDisplayModel>> {
+        const { data } = await axios.get(`product/${guid}`);
 
         return data;
     },

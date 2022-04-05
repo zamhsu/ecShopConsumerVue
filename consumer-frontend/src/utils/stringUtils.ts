@@ -1,3 +1,7 @@
+/**
+ * 取得自製GUID
+ * @returns 
+ */
 export function getGuid(): string {
     let d = Date.now();
     
@@ -12,6 +16,23 @@ export function getGuid(): string {
     });
 }
 
+/**
+ * 取得客戶端時區（格式XX:00:00)）
+ * @returns 
+ */
+export function getClientTimeZone(): string {
+    const clientDate = new Date(Date.now());
+    // [+8區為-480分鐘], [-3區為+180分鐘]
+    const timeZone = -(clientDate.getTimezoneOffset() / 60);
+
+    if (timeZone >= 10 || timeZone <= -10) {
+        return `${timeZone}:00:00`;
+    }
+    else {
+        return `0${timeZone}:00:00`;
+    }
+}
+
 export const stringUtils = {
-    getGuid
+    getGuid, getClientTimeZone
 }

@@ -54,6 +54,7 @@ import orderApi from "@/api/order";
 import { defineComponent, ref } from "vue";
 import { cart } from "@/services/cartService";
 import { emitter } from "@/utils/eventBus";
+import router from "@/router";
 
 export default defineComponent({
   components: {
@@ -92,10 +93,14 @@ export default defineComponent({
         .placeOrder(customerInfo.value, orderDetails, couponCode.value)
         .then((response) => {
           if (response.isSuccess) {
+            cart.removeAll();
+
             emitter.emit("alertEvent", {
               message: "建立成功",
               status: "success",
             });
+
+            router.push({ name: "Payment", params: { id: response.data } });
           } else {
             emitter.emit("alertEvent", {
               message: "建立失敗",

@@ -17,3 +17,35 @@ export interface PlaceOrderModel {
     orderDetailModels: OrderDetailModel[],
     couponCode: string
 }
+
+export interface OrderItemDetailModel {
+    itemNo: number,
+    productGuid: string,
+    productName: string,
+    quantity: number,
+    total: number
+}
+
+export interface OrderCouponDetailModel {
+    itemNo: number,
+    couponCode: string,
+    quantity: number,
+    total: number
+}
+
+export interface SingleOrderModel {
+    guid: string,
+    name: string,
+    email: string,
+    phone: string,
+    address: string,
+    total: number,
+    paymentMethodId: number | null,
+    paymentMethodString: string | null,
+    paidDate: Date | null,
+    statusId: number,
+    statusString: string,
+    createDate: Date,
+    orderDetails: OrderItemDetailModel[],
+    couponDetail: OrderCouponDetailModel | null;
+}

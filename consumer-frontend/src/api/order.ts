@@ -1,4 +1,9 @@
-import { CustomerInfoModel, OrderDetailModel, PlaceOrderModel } from "@/models/orderModel";
+import {
+    CustomerInfoModel,
+    OrderDetailModel,
+    PlaceOrderModel,
+    SingleOrderModel
+} from "@/models/orderModel";
 import { RequestData } from "@/models/requestData";
 import { ResponseData } from "@/models/responseData";
 import axios from "@/utils/http";
@@ -25,6 +30,17 @@ export default {
         }
 
         const { data } = await axios.post("order/place", requestData);
+
+        return data;
+    },
+
+    /**
+     * 取得一筆訂單
+     * @param guid 訂單Guid
+     * @returns 
+     */
+    async getOneOrder(guid: string): Promise<ResponseData<SingleOrderModel>> {
+        const { data } = await axios.get(`order/${guid}`);
 
         return data;
     },

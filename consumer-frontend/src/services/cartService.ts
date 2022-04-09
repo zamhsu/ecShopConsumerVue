@@ -41,6 +41,13 @@ function getItemCount() {
     return items.length;
 }
 
+/**
+ * 從Session Storage移除全部商品
+ */
+function removeAllFromSessionStorage() {
+    storageService.removeSessionStorageValue(storageKeyName);
+}
+
 export const cart = reactive({
     count: getItemCount(),
 
@@ -111,6 +118,15 @@ export const cart = reactive({
 
         items.splice(itemIndex, 1);
         updateToSessionStorage(items);
+        this.count = getItemCount();
+    },
+
+    /**
+     * 移除全部商品
+     * @param productGuid 商品Guid
+     */
+    removeAll() {
+        removeAllFromSessionStorage();
         this.count = getItemCount();
     },
 

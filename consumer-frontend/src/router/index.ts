@@ -24,6 +24,16 @@ export const routes: Array<RouteRecordRaw> = [
                 component: () => import(/* webpackChunkName: "index" */ '../pages/Checkout.vue'),
             },
             {
+                path: "payment/:id",
+                name: "Payment",
+                component: () => import(/* webpackChunkName: "index" */ '../pages/Payment.vue'),
+            },
+            {
+                path: "payment/result",
+                name: "PaymentResult",
+                component: () => import(/* webpackChunkName: "index" */ '../pages/PaymentResult.vue'),
+            },
+            {
                 path: "order",
                 name: "Order",
                 component: MainLayout,

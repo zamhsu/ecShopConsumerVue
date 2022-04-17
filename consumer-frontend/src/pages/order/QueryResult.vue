@@ -206,7 +206,7 @@ import { defineComponent, onBeforeUnmount, onMounted, ref } from "vue";
 import router from "@/router";
 import { emitter } from "@/utils/eventBus";
 import { currency, fullDateTime } from "@/utils/filter";
-import { PaginationModel } from "@/models/PaginationModel";
+import { PaginationModel } from "@/models/paginationModel";
 
 export default defineComponent({
   components: {

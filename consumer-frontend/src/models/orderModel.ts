@@ -1,3 +1,5 @@
+import { PaginationModel } from "./PaginationModel";
+
 export interface CustomerInfoModel {
     name: string,
     email: string,
@@ -48,4 +50,9 @@ export interface SingleOrderModel {
     createDate: Date,
     orderDetails: OrderItemDetailModel[],
     couponDetail: OrderCouponDetailModel | null;
+}
+
+export interface CustomerOrderModel {
+    orderDisplays: SingleOrderModel[],
+    pagination: PaginationModel
 }

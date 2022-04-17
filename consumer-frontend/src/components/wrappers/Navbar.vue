@@ -45,10 +45,10 @@
                 </router-link>
               </li>
               <li>
-                <a href="#" class="nav-link text-white">
-                  <i class="fas fa-table"></i>
+                <router-link :to="{ name: 'Order' }" class="nav-link text-white">
+                  <i class="fas fa-shopping-cart"></i>
                   訂單
-                </a>
+                </router-link>
               </li>
               <li>
                 <router-link :to="{ name: 'Cart' }" class="nav-link text-white">

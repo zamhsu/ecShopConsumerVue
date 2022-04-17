@@ -36,7 +36,22 @@ export const routes: Array<RouteRecordRaw> = [
             {
                 path: "order",
                 name: "Order",
-                component: MainLayout,
+                redirect: {
+                    name: "OrderIdentity"
+                },
+                component: () => import(/* webpackChunkName: "order" */ '../pages/order/Index.vue'),
+                children: [
+                    {
+                        path: "",
+                        name: "OrderIdentity",
+                        component: () => import(/* webpackChunkName: "order" */ '../pages/order/Identity.vue'),
+                    },
+                    {
+                        path: "queryResult",
+                        name: "OrderQueryResult",
+                        component: () => import(/* webpackChunkName: "order" */ '../pages/order/QueryResult.vue'),
+                    },
+                ],
             }
         ]
     }

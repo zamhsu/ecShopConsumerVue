@@ -1,5 +1,6 @@
 import {
     CustomerInfoModel,
+    CustomerOrderModel,
     OrderDetailModel,
     PlaceOrderModel,
     SingleOrderModel
@@ -41,6 +42,24 @@ export default {
      */
     async getOneOrder(guid: string): Promise<ResponseData<SingleOrderModel>> {
         const { data } = await axios.get(`order/${guid}`);
+
+        return data;
+    },
+
+    /**
+     * 取得顧客訂單資料
+     * @param customerInfo 訂單個人資料
+     * @param pageSize 資料筆數，預設10
+     * @param page 頁數，預設1
+     * @returns 
+     */
+    async getCustomerOrders(customerInfo: CustomerInfoModel, pageSize = 10, page = 1): Promise<ResponseData<CustomerOrderModel>> {
+        const requestData: RequestData<CustomerInfoModel> = {
+            data: customerInfo,
+            timeZone: stringUtils.getClientTimeZone()
+        }
+
+        const { data } = await axios.post(`order/customerInfo?pageSize=${pageSize}&page=${page}`, requestData);
 
         return data;
     },
